@@ -12,6 +12,7 @@ from django.urls import reverse
 
 class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(_("first name"), max_length=150, blank=True)
+    username = models.CharField(_("username"), max_length=150, unique=True)
     last_name = models.CharField(_("last name"), max_length=150, blank=True)
     email = models.EmailField(_("email address"), blank=True, unique=True)
     phone = models.CharField(_("phone number"), max_length=20, blank=True, null=True)
@@ -31,7 +32,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     EMAIL_FIELD = "email"
-    USERNAME_FIELD = "email"
+    USERNAME_FIELD = "username"
 
     @property
     def fullName(self):

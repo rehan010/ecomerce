@@ -62,6 +62,15 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_cleanup",
     "rest_framework_simplejwt",
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
     # "rest_framework_simplejwt.token_blacklist",
     "django_filters",
     "django_rest_passwordreset",
@@ -153,6 +162,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+REST_USE_JWT = True
+JWT_AUTH_COOKIE = 'access-token'
+JWT_AUTH_REFRESH_COOKIE = 'refresh-token'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -160,3 +172,5 @@ USE_TZ = True
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = "media"
+
+SITE_ID = 1
